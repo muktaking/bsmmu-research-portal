@@ -6,7 +6,7 @@ import Top_nav_shadcn from './components/top_nav_shadcn';
 export default function Home() {
   return (
     <div className="">
-      <Top_nav_shadcn />
+      <Top_nav />
       <div className="bg-sky-600 text-white">
         <Hero />
       </div>
