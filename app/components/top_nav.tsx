@@ -1,8 +1,16 @@
 'use client';
 import { Button } from '@/components/ui/button';
 import React, { useState } from 'react';
-import { FaBars, FaCross, FaMagnet } from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
 import { FaXmark } from 'react-icons/fa6';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 export default function Top_nav() {
   const [toggleMenu, setToggleMenu] = useState(true);
@@ -15,22 +23,32 @@ export default function Top_nav() {
         <img className="w-16" src="https://placehold.co/16x16" />
       </div>
       <div
-        className={`absolute left-0 ${toggleMenu ? 'top-[-100%]' : 'top-[-9%]'} flex min-h-[60vh] w-full items-center bg-white px-5 text-xl md:static md:min-h-fit md:w-auto`}
+        className={`absolute left-0 ${toggleMenu ? 'top-[-100%]' : 'top-[-9%]'} flex min-h-[60vh] w-full items-center bg-white px-5 text-xl md:static md:min-h-fit md:w-auto md:bg-gray-50`}
       >
         <ul className="flex flex-col gap-8 md:flex-row md:items-center md:gap-[4vh]">
-          <li>
+          <li className="text-sky-800 hover:text-black">
             <a href="">Home</a>
           </li>
-          <li>
+          <li className="text-gray-400 hover:text-black">
             <a href="">Researchers</a>
           </li>
           <li>
-            <a href="">Institute</a>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="text-gray-400 hover:text-black focus:outline-none">
+                Institute
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>BSMMU</DropdownMenuItem>
+                <DropdownMenuItem>NIMH</DropdownMenuItem>
+                <DropdownMenuItem>SOMCH</DropdownMenuItem>
+                <DropdownMenuItem>Other</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </li>
-          <li>
+          <li className="text-gray-400 hover:text-black">
             <a href="">Scales</a>
           </li>
-          <li>
+          <li className="text-gray-400 hover:text-black">
             <a href="">Blogs</a>
           </li>
         </ul>

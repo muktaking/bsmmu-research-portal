@@ -6,7 +6,7 @@ export default function Hero() {
       <div className="col-span-8 flex items-center">
         <div className="text-center">
           <h1 className="my-2 text-3xl">BSMMU PSYCHIATRY PORTAL</h1>
-          <p className="text-xl">
+          <p className="text-lg">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
