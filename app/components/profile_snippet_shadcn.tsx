@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 export default function Profile_snippet_shadcn() {
   return (
     <Card className="w-96">
-      <div className="bg-sky-600 py-5">
+      <div className="bg-custom-secondary py-5">
         <img
           className="mx-auto h-24 w-24 rounded-full ring-4 ring-white"
           src="/assets/images/researchers/1.jpg"
