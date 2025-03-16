@@ -77,3 +77,6 @@ body {
     @apply bg-background text-foreground;
   }
 }
+.content-grid {
+  max-width: 1120px;
+}
