@@ -3,6 +3,7 @@ import Profile_navbar from '../components/profile/profile_navbar';
 import Section_block from '../components/profile/section_block';
 
 import Profile_about_block from '../components/profile/profile_about_block';
+import Article_snippet_shadcn from '../components/article_snippet_shadcn';
 
 export default function Researchers() {
   return (
@@ -12,6 +13,9 @@ export default function Researchers() {
       <div className="bg-gray-100 px-5 pb-5">
         <Section_block header="About">
           <Profile_about_block />
+        </Section_block>
+        <Section_block header="Publications">
+          <Article_snippet_shadcn />
         </Section_block>
       </div>
     </div>

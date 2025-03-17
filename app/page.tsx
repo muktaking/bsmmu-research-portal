@@ -12,8 +12,8 @@ export default function Home() {
 
       <div className="mb-2 bg-custom-foreground pb-10 pt-7">
         <Section_heading heading="Top Researchers" />
-        <div className="flex flex-wrap justify-around gap-5">
-          {[1, 2, 3, 4].map((e) => (
+        <div className="flex flex-wrap justify-around gap-3">
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((e) => (
             <Profile_snippet_shadcn key={e} />
           ))}
         </div>

@@ -3,22 +3,24 @@ import { Button } from '@/components/ui/button';
 
 export default function Profile_snippet_shadcn() {
   return (
-    <Card className="w-96">
-      <div className="bg-custom-secondary py-5">
+    <Card className="w-max bg-custom-secondary">
+      <CardContent className="flex gap-3 pt-5">
         <img
-          className="mx-auto h-24 w-24 rounded-full ring-4 ring-white"
+          className="mx-auto h-16 w-16 rounded-full ring-2 ring-white"
           src="/assets/images/researchers/1.jpg"
         ></img>
-      </div>
-      <CardContent className="pt-5 text-center">
-        <p className="text-lg font-bold">Dr. M.M.A. Shalahuddin Qusar </p>
-        <p className="font-medium">Professor</p>
-        <p className="font-medium">Deperment of Psychiatry</p>
-        <p className="font-medium">BSMMU</p>
-        <p className="font-medium">Email : gongajolybiplob@yahoo..com</p>
+        <div className="">
+          <p className="font-bold">Dr. M.M.A. Shalahuddin Qusar </p>
+          <p className="text-sm font-medium text-slate-600">Professor</p>
+          <p className="text-sm font-medium text-slate-600">
+            Deperment of Psychiatry, BSMMU
+          </p>
+        </div>
       </CardContent>
       <CardFooter>
-        <Button className="mx-auto bg-sky-600">More</Button>
+        <Button variant="link" className="mx-auto text-blue-600">
+          View Profiles
+        </Button>
       </CardFooter>
     </Card>
   );
