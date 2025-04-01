@@ -78,6 +78,12 @@ body {
   }
 }
 
+@layer components {
+  .yas-text-muted {
+    @apply mr-2 text-sm text-stone-400;
+  }
+}
+
 @layer utilities {
   .content-grid {
     max-width: 1120px;

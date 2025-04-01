@@ -10,7 +10,7 @@ export default function Article_snippet_shadcn() {
         </a>
         <div className="my-2">
           <Badge className="mr-3 bg-blue-500 py-1">Article</Badge>
-          <span className="mr-2 text-sm text-stone-400">Mar 2005</span>
+          <span className="yas-text-muted">Mar 2005</span>
         </div>
 
         <p className="text-sm">
