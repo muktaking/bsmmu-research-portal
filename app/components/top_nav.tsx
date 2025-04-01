@@ -7,10 +7,9 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import Link from 'next/link';
 
 export default function Top_nav() {
   const [toggleMenu, setToggleMenu] = useState(true);
@@ -27,10 +26,10 @@ export default function Top_nav() {
       >
         <ul className="flex flex-col gap-8 md:flex-row md:items-center md:gap-[4vh]">
           <li className="text-sky-800 hover:text-black">
-            <a href="">Home</a>
+            <Link href="/">Home</Link>
           </li>
           <li className="text-gray-400 hover:text-black">
-            <a href="">Researchers</a>
+            <Link href="researchers">Researchers</Link>
           </li>
           <li>
             <DropdownMenu>
@@ -46,10 +45,10 @@ export default function Top_nav() {
             </DropdownMenu>
           </li>
           <li className="text-gray-400 hover:text-black">
-            <a href="">Scales</a>
+            <Link href="scales">Scales</Link>
           </li>
           <li className="text-gray-400 hover:text-black">
-            <a href="">Blogs</a>
+            <Link href="/blogs">Blogs</Link>
           </li>
         </ul>
       </div>
