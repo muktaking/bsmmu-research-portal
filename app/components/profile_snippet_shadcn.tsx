@@ -1,5 +1,5 @@
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function Profile_snippet_shadcn() {
   return (
@@ -18,9 +18,9 @@ export default function Profile_snippet_shadcn() {
         </div>
       </CardContent>
       <CardFooter>
-        <Button variant="link" className="mx-auto text-blue-600">
+        <Link href={`/researcher/1`} className="mx-auto text-sm text-blue-600">
           View Profiles
-        </Button>
+        </Link>
       </CardFooter>
     </Card>
   );

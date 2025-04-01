@@ -13,7 +13,7 @@ export default function Footer_v2() {
                   viewBox="0 0 3368 512"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <g fill="none" fill-rule="evenodd">
+                  <g fill="none" fillRule="evenodd">
                     <g transform="translate(0 -75)">
                       <g transform="translate(0 75)">
                         <rect
@@ -39,9 +39,9 @@ export default function Footer_v2() {
                       </g>
                       <text
                         fill="white"
-                        font-family="Nunito-Bold, Nunito"
-                        font-size="512"
-                        font-weight="bold"
+                        fontFamily="Nunito-Bold, Nunito"
+                        fontSize="512"
+                        fontWeight="bold"
                       >
                         <tspan x="654" y="518">
                           BPP

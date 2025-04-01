@@ -1,9 +1,11 @@
 import React from 'react';
-import Profile_snippet_shadcn from '../components/profile_snippet_shadcn';
+import Profile_snippet_shadcn from '@/app/components/profile_snippet_shadcn';
 
-export default function Scale() {
+export default async function Scale({ params }: { params: { id: string } }) {
+  const { id } = await params;
   return (
-    <div className="my-5">
+    <div className="m-7">
+      <h3>Scale ID: {id}</h3>
       <div className="content-grid mx-auto">
         <p className="text-xl font-bold">Beck Scale for Suicidal</p>
         <p className="yas-text-muted my-3">Publish Date: January 2013</p>

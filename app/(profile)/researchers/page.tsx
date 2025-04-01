@@ -1,9 +1,9 @@
-import Profile_top_section from '../components/profile/profile_top_section';
-import Profile_navbar from '../components/profile/profile_navbar';
-import Section_block from '../components/profile/section_block';
+import Profile_top_section from '@/app/components/profile/profile_top_section';
+import Profile_navbar from '@/app/components/profile/profile_navbar';
+import Section_block from '@/app/components/profile/section_block';
 
-import Profile_about_block from '../components/profile/profile_about_block';
-import Article_snippet_shadcn from '../components/article_snippet_shadcn';
+import Profile_about_block from '@/app/components/profile/profile_about_block';
+import Article_snippet_shadcn from '@/app/components/article_snippet_shadcn';
 
 export default function Researchers() {
   return (

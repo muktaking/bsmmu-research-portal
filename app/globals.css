@@ -82,6 +82,15 @@ body {
   .yas-text-muted {
     @apply mr-2 text-sm text-stone-400;
   }
+  .link-active {
+    @apply text-sky-800;
+  }
+  .link-inactive {
+    @apply bg-gray-50;
+  }
+  .link-hover {
+    @apply hover:text-black;
+  }
 }
 
 @layer utilities {
