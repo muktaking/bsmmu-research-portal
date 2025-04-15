@@ -37,7 +37,7 @@ export default function Top_nav() {
           </li>
           <li className="hover:text-black">
             <Link
-              href="researchers"
+              href="/researchers"
               className={`${pathName == '/researchers' ? 'link-active' : 'link-inactive'} link-hover`}
             >
               Researchers
@@ -58,7 +58,7 @@ export default function Top_nav() {
           </li>
           <li>
             <Link
-              href="scales"
+              href="/scales"
               className={`${pathName == '/scales' ? 'link-active' : 'link-inactive'} link-hover`}
             >
               Scales

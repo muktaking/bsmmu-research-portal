@@ -5,8 +5,12 @@ import Section_block from '@/app/components/profile/section_block';
 import Profile_about_block from '@/app/components/profile/profile_about_block';
 import Article_snippet_shadcn from '@/app/components/article_snippet_shadcn';
 
-export default function Researchers({ params }: { params: { id: string } }) {
-  const { id } = params;
+export default async function Researchers({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const { id } = await params;
   return (
     <div className="">
       <h3>Researcher ID: {id}</h3>
