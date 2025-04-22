@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "zip": "zip -r ../nextapp.zip . -x '*.git/*' .gitignore 'node_modules/*' README.md 'data/*'"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.3",

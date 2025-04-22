@@ -8,7 +8,7 @@ import Article_snippet_shadcn from '@/app/components/article_snippet_shadcn';
 export default async function Researchers({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
   return (

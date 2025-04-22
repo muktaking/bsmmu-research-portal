@@ -15,7 +15,7 @@ export default function Profile_snippet() {
           <p className="font-medium">BSMMU</p>
           <p className="font-medium">Email : gongajolybiplob@yahoo..com</p>
         </div>
-        <Button variant="">More</Button>
+        <Button>More</Button>
       </div>
     </div>
   );

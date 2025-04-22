@@ -1,7 +1,9 @@
 import React from 'react';
 import Profile_snippet_shadcn from '@/app/components/profile_snippet_shadcn';
 
-export default async function Scale({ params }: { params: { id: string } }) {
+type Params = Promise<{ id: string }>;
+
+export default async function Scale({ params }: { params: Params }) {
   const { id } = await params;
   return (
     <div className="m-7">

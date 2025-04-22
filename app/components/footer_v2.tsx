@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 export default function Footer_v2() {
@@ -7,7 +8,7 @@ export default function Footer_v2() {
         <div className="container mx-auto px-4">
           <div className="-mx-4 flex flex-wrap justify-between">
             <div className="my-4 w-full px-4 xl:w-1/5">
-              <a href="/" className="mb-10 block w-56">
+              <Link href="/" className="mb-10 block w-56">
                 <svg
                   version="1.1"
                   viewBox="0 0 3368 512"
@@ -50,7 +51,7 @@ export default function Footer_v2() {
                     </g>
                   </g>
                 </svg>
-              </a>
+              </Link>
               <p className="text-justify">
                 Tailwindow is a collection of UI Components created using
                 Tailwind CSS Framework. The UI Components gives you all of the
