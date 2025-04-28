@@ -25,9 +25,10 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <hr />
+     
           {/* Section Article_scale_section */}
           <div className="my-5">
+          <Section_heading heading="Publications" />
             <Article_scale_section />
           </div>
         </div>
