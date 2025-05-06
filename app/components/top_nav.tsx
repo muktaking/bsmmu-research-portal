@@ -38,9 +38,9 @@ export default function Top_nav() {
           <li className="hover:text-black">
             <Link
               href="/researchers"
-              className={`${pathName == '/researchers' ? 'link-active' : 'link-inactive'} link-hover`}
+              className={`${pathName == '/researcher' ? 'link-active' : 'link-inactive'} link-hover`}
             >
-              Researchers
+              Researcher
             </Link>
           </li>
           <li>

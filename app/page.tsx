@@ -1,10 +1,25 @@
+import { ResearcherType } from '@/types/researchers';
 import Article_scale_section from './components/article_scale_section';
 import Hero from './components/hero';
 import Profile_snippet_shadcn from './components/profile_snippet_shadcn';
 import Section_heading from './components/section_heading';
 import Topicwise_nav from './components/topicwise_nav';
 
-export default function Home() {
+async function getData() {
+  const res = await fetch('http://localhost:8888/researchers', {
+    cache: 'no-store', // important if you want *true* server-side fetching every request
+  });
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+
+  return res.json();
+}
+
+export default async function Home() {
+  const researchers = await getData();
+
   return (
     <div className="">
       <div className="bg-custom-primary text-white">
@@ -20,15 +35,18 @@ export default function Home() {
           <div className="pb-7">
             <Section_heading heading="Researchers" />
             <div className="flex flex-wrap justify-around gap-3">
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((e) => (
-                <Profile_snippet_shadcn key={e} />
+              {researchers?.map((researcher: ResearcherType) => (
+                <Profile_snippet_shadcn
+                  key={researcher.id}
+                  researcher={researcher}
+                />
               ))}
             </div>
           </div>
-     
+
           {/* Section Article_scale_section */}
           <div className="my-5">
-          <Section_heading heading="Publications" />
+            <Section_heading heading="Publications" />
             <Article_scale_section />
           </div>
         </div>

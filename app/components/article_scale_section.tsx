@@ -7,7 +7,7 @@ export default function Article_scale_section() {
     <div className="content-grid grid-cols-2 md:grid">
       <div className="col-span-1 mb-5 mr-3">
         <p className="mb-3 text-xl font-bold">Trending Articles</p>
-        <hr className='mb-5' />
+        <hr className="mb-5" />
         <div className="">
           {[1, 2, 3, 4].map((e) => (
             <Article_snippet_shadcn key={e} />
@@ -16,7 +16,7 @@ export default function Article_scale_section() {
       </div>
       <div className="col-span-1 border-t-2 border-stone-400 pt-5 md:border-l-2 md:border-t-0 md:pl-7 md:pt-0">
         <p className="mb-3 text-xl font-bold">Latest Scales</p>
-        <hr className='mb-5' />
+        <hr className="mb-5" />
         <div className="">
           {[1, 2, 3, 4, 5, 6].map((e) => (
             <Scale_snippet_shadcn key={e} />
