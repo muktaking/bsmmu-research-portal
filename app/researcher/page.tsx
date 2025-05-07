@@ -1,9 +1,9 @@
 import Section_heading from '@/app/components/section_heading';
 import Profile_snippet_shadcn from '@/app/components/profile_snippet_shadcn';
-import { ResearcherType } from '@/types/researchers';
+import { ResearcherType } from '@/types/researcher';
 
 async function getData() {
-  const res = await fetch('http://localhost:8888/researchers', {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/researchers`, {
     cache: 'no-store', // important if you want *true* server-side fetching every request
   });
 

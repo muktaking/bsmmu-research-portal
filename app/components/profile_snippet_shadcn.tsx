@@ -1,5 +1,5 @@
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { ResearcherType } from '@/types/researchers';
+import { ResearcherType } from '@/types/researcher';
 import Link from 'next/link';
 
 export default function Profile_snippet_shadcn({
@@ -33,7 +33,7 @@ export default function Profile_snippet_shadcn({
       <CardFooter>
         <Link
           href={`/researcher/${researcher.id}`}
-          className="mx-auto text-sm text-blue-600"
+          className="ml-auto text-sm text-blue-600"
         >
           View Profiles
         </Link>

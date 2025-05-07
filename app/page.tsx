@@ -1,4 +1,4 @@
-import { ResearcherType } from '@/types/researchers';
+import { ResearcherType } from '@/types/researcher';
 import Article_scale_section from './components/article_scale_section';
 import Hero from './components/hero';
 import Profile_snippet_shadcn from './components/profile_snippet_shadcn';
@@ -6,7 +6,7 @@ import Section_heading from './components/section_heading';
 import Topicwise_nav from './components/topicwise_nav';
 
 async function getData() {
-  const res = await fetch('http://localhost:8888/researchers', {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/researchers`, {
     cache: 'no-store', // important if you want *true* server-side fetching every request
   });
 

@@ -13,11 +13,11 @@ export default async function Scale({ params }: { params: Params }) {
         <p className="yas-text-muted my-3">Publish Date: January 2013</p>
         <div className="mb-3">
           <p className="mb-3 font-bold">Authors:</p>
-          <div className="flex flex-wrap gap-2">
+          {/* <div className="flex flex-wrap gap-2">
             {[1, 2].map((e, i) => (
               <Profile_snippet_shadcn key={i} />
             ))}
-          </div>
+          </div> */}
         </div>
         <div className="my-3">Tags: Suicidal, Beck, Scale</div>
         <div>Publication link</div>

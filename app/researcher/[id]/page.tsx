@@ -5,7 +5,7 @@ import Section_block from '@/app/components/profile/section_block';
 import Profile_about_block from '@/app/components/profile/profile_about_block';
 import Article_snippet_shadcn from '@/app/components/article_snippet_shadcn';
 
-export default async function Researchers({
+export default async function Researcher({
   params,
 }: {
   params: Promise<{ id: string }>;
