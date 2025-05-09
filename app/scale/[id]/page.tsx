@@ -1,26 +1,30 @@
-import React from 'react';
-import Profile_snippet_shadcn from '@/app/components/profile_snippet_shadcn';
+import { getScaleData } from '@/api/scale';
 
-type Params = Promise<{ id: string }>;
+type Params = Promise<{ id: number }>;
 
 export default async function Scale({ params }: { params: Params }) {
   const { id } = await params;
+  const scale: ScaleType = await getScaleData(id);
   return (
     <div className="m-7">
       <h3>Scale ID: {id}</h3>
       <div className="content-grid mx-auto">
-        <p className="text-xl font-bold">Beck Scale for Suicidal</p>
-        <p className="yas-text-muted my-3">Publish Date: January 2013</p>
+        <p className="text-xl font-bold">{scale.fullname}</p>
+        <p className="yas-text-muted my-3">
+          Bangla Validation Date: {scale.validation_year}
+        </p>
         <div className="mb-3">
-          <p className="mb-3 font-bold">Authors:</p>
+          <p className="mb-3 font-bold">Bangla Validators: {scale.validator}</p>
           {/* <div className="flex flex-wrap gap-2">
             {[1, 2].map((e, i) => (
               <Profile_snippet_shadcn key={i} />
             ))}
           </div> */}
         </div>
-        <div className="my-3">Tags: Suicidal, Beck, Scale</div>
-        <div>Publication link</div>
+        <div className="my-3">Tags: {scale.tags.join(',')}</div>
+        <div>
+          <a href={scale.publication_link}>Publication</a>
+        </div>
         <div className="my-5">
           <p className="font-bold">Rule of Usage</p>
           <div>

@@ -1,8 +1,10 @@
 import React from 'react';
 import Article_snippet_shadcn from './article_snippet_shadcn';
 import Scale_snippet_shadcn from './scale_snippet_shadcn';
+import { getAllScaleData } from '@/api/scale';
 
-export default function Article_scale_section() {
+export default async function Article_scale_section() {
+  const scales = await getAllScaleData();
   return (
     <div className="content-grid grid-cols-2 md:grid">
       <div className="col-span-1 mb-5 mr-3">
@@ -18,8 +20,8 @@ export default function Article_scale_section() {
         <p className="mb-3 text-xl font-bold">Latest Scales</p>
         <hr className="mb-5" />
         <div className="">
-          {[1, 2, 3, 4, 5, 6].map((e) => (
-            <Scale_snippet_shadcn key={e} />
+          {scales?.map((scale: ScaleType) => (
+            <Scale_snippet_shadcn key={scale.id} scale={scale} />
           ))}
         </div>
       </div>

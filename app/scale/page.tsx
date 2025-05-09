@@ -1,20 +1,9 @@
+import { getAllScaleData } from '@/api/scale';
 import Scale_snippet_shadcn from '../components/scale_snippet_shadcn';
 import Section_heading from '../components/section_heading';
 
-async function getData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/scales`, {
-    cache: 'no-store', // important if you want *true* server-side fetching every request
-  });
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
-}
-
 export default async function Scales() {
-  const scales = await getData();
+  const scales = await getAllScaleData();
   return (
     <div className="mx-10 mb-10">
       <Section_heading heading="Scale" />

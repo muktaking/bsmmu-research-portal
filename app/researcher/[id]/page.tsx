@@ -4,17 +4,20 @@ import Section_block from '@/app/components/profile/section_block';
 
 import Profile_about_block from '@/app/components/profile/profile_about_block';
 import Article_snippet_shadcn from '@/app/components/article_snippet_shadcn';
+import { getResearcherDataById } from '@/api/researcher';
+import { ResearcherType } from '@/types/researcher';
 
 export default async function Researcher({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ id: number }>;
 }) {
   const { id } = await params;
+  const researcher: ResearcherType = await getResearcherDataById(id);
   return (
     <div className="">
       <h3>Researcher ID: {id}</h3>
-      <Profile_top_section />
+      <Profile_top_section researcher={researcher} />
       <Profile_navbar />
       <div className="bg-gray-100 px-5 pb-5">
         <Section_block header="About">
