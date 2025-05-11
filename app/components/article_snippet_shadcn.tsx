@@ -2,7 +2,7 @@ import { Badge } from '@/components/ui/badge';
 
 export default function Article_snippet_shadcn() {
   return (
-    <div className="mb-3 border-b-2 border-stone-300 pb-3">
+    <div className="mb-3 border-b-2 border-stone-300 pb-3" id="publication">
       <div>
         <a href="#" className="font-bold hover:underline">
           Premature ejaculation among post-coronary artery stenting patients

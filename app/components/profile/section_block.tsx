@@ -8,7 +8,7 @@ export default function Section_block({
   children: React.ReactNode;
 }) {
   return (
-    <div className="content-grid mx-auto mb-5">
+    <div className="content-grid mx-auto mb-5" id="about">
       <div className="gap-x- flex flex-nowrap items-center pt-3">
         <p className="my-5 text-2xl text-slate-600">{header}</p>
         <div className="h-[1px] grow bg-gray-300"></div>

@@ -32,7 +32,7 @@ export default function Profile_top_section({
         </div>
         <div className="">
           <Button size="lg" variant="outline" className="mx-auto">
-            Contact: {researcher.phone}
+            <a href={`mailto:${researcher.email}`}>Contact</a>
           </Button>
         </div>
       </div>

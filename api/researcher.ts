@@ -24,3 +24,18 @@ export async function getResearcherDataById(id: number) {
 
   return res.json();
 }
+
+export async function getResearcherDataByInstituteID(id: number) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/researchers?institute_id=${id}`,
+    {
+      cache: 'no-store', // important if you want *true* server-side fetching every request
+    },
+  );
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+
+  return res.json();
+}

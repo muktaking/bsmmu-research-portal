@@ -16,12 +16,11 @@ export default async function Researcher({
   const researcher: ResearcherType = await getResearcherDataById(id);
   return (
     <div className="">
-      <h3>Researcher ID: {id}</h3>
       <Profile_top_section researcher={researcher} />
       <Profile_navbar />
       <div className="bg-gray-100 px-5 pb-5">
         <Section_block header="About">
-          <Profile_about_block />
+          <Profile_about_block researcher={researcher} />
         </Section_block>
         <Section_block header="Publications">
           <Article_snippet_shadcn />

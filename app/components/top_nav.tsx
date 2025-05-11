@@ -2,7 +2,7 @@
 import { Button } from '@/components/ui/button';
 import React, { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
-import { FaXmark } from 'react-icons/fa6';
+import { FaChevronRight, FaXmark } from 'react-icons/fa6';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -45,14 +45,38 @@ export default function Top_nav() {
           </li>
           <li>
             <DropdownMenu>
-              <DropdownMenuTrigger className="text-gray-400 hover:text-black focus:outline-none">
-                Institute
+              <DropdownMenuTrigger className="flex flex-nowrap items-center text-gray-400 hover:text-black focus:outline-none">
+                <span>Institute</span>
+                <FaChevronRight size=".8rem" />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem>BSMMU</DropdownMenuItem>
-                <DropdownMenuItem>NIMH</DropdownMenuItem>
-                <DropdownMenuItem>SOMCH</DropdownMenuItem>
-                <DropdownMenuItem>Other</DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href="/institute/bmu">BMU</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href="/institute/nimh">NIMH</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href="/institute/somch">SOMCH</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href="/institute/afmc">AFMC</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="felx-nowrap flex items-center">
+                      <span>Others</span> <FaChevronRight size=".8rem" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                      <DropdownMenuItem>
+                        <Link href="/institute/foreign">Foreign</Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <Link href="/institute/local">Local</Link>
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </li>
