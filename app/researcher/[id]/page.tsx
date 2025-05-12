@@ -22,9 +22,9 @@ export default async function Researcher({
         <Section_block header="About">
           <Profile_about_block researcher={researcher} />
         </Section_block>
-        <Section_block header="Publications">
+        {/* <Section_block header="Publications">
           <Article_snippet_shadcn />
-        </Section_block>
+        </Section_block> */}
       </div>
     </div>
   );

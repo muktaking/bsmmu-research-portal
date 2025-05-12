@@ -2,17 +2,20 @@ import React from 'react';
 import Article_snippet_shadcn from './article_snippet_shadcn';
 import Scale_snippet_shadcn from './scale_snippet_shadcn';
 import { getAllScaleData } from '@/api/scale';
+import { getAllArticleData } from '@/api/article';
+import { ArticleType } from '@/types/article';
 
 export default async function Article_scale_section() {
   const scales = await getAllScaleData();
+  const articles = await getAllArticleData();
   return (
     <div className="content-grid grid-cols-2 md:grid">
       <div className="col-span-1 mb-5 mr-3">
         <p className="mb-3 text-xl font-bold">Trending Articles</p>
         <hr className="mb-5" />
         <div className="">
-          {[1, 2, 3, 4].map((e) => (
-            <Article_snippet_shadcn key={e} />
+          {articles?.map((article: ArticleType) => (
+            <Article_snippet_shadcn key={article.id} article={article} />
           ))}
         </div>
       </div>

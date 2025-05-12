@@ -1,20 +1,28 @@
 import { Badge } from '@/components/ui/badge';
+import { ArticleType } from '@/types/article';
+import Link from 'next/link';
 
-export default function Article_snippet_shadcn() {
+export default function Article_snippet_shadcn({
+  article,
+}: {
+  article: ArticleType;
+}) {
   return (
     <div className="mb-3 border-b-2 border-stone-300 pb-3" id="publication">
       <div>
-        <a href="#" className="font-bold hover:underline">
-          Premature ejaculation among post-coronary artery stenting patients
-          attending cardiology out patient department of tertiary care hospital
-        </a>
+        <Link
+          href={`/article/${article.id}`}
+          className="font-bold text-blue-500 hover:underline"
+        >
+          {article.title}
+        </Link>
         <div className="my-2">
-          <Badge className="mr-3 bg-blue-500 py-1">Article</Badge>
-          <span className="yas-text-muted">Mar 2005</span>
+          <Badge className="mr-3 bg-slate-700 py-1">Article</Badge>
+          <span className="yas-text-muted">{article.published_year}</span>
         </div>
 
         <p className="text-sm">
-          <span className="">M M A Shalahuddin Qusar, et al.</span>
+          <span className="">{article.author.join(',')}</span>
         </p>
       </div>
     </div>

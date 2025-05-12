@@ -38,7 +38,7 @@ export default function Top_nav() {
           <li className="hover:text-black">
             <Link
               href="/researcher"
-              className={`${pathName == '/researcher' ? 'link-active' : 'link-inactive'} link-hover`}
+              className={`${pathName.includes('/researcher') ? 'link-active' : 'link-inactive'} link-hover`}
             >
               Researcher
             </Link>
@@ -46,7 +46,11 @@ export default function Top_nav() {
           <li>
             <DropdownMenu>
               <DropdownMenuTrigger className="flex flex-nowrap items-center text-gray-400 hover:text-black focus:outline-none">
-                <span>Institute</span>
+                <span
+                  className={`${pathName.includes('/institute') ? 'link-active' : 'link-inactive'} link-hover`}
+                >
+                  Institute
+                </span>
                 <FaChevronRight size=".8rem" />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
@@ -83,9 +87,17 @@ export default function Top_nav() {
           <li>
             <Link
               href="/scale"
-              className={`${pathName == '/scale' ? 'link-active' : 'link-inactive'} link-hover`}
+              className={`${pathName.includes('/scale') ? 'link-active' : 'link-inactive'} link-hover`}
             >
               Scale
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/article"
+              className={`${pathName == '/article' ? 'link-active' : 'link-inactive'} link-hover`}
+            >
+              Article
             </Link>
           </li>
           <li>
