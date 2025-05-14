@@ -10,10 +10,7 @@ export default function Article_snippet_shadcn({
   return (
     <div className="mb-3 border-b-2 border-stone-300 pb-3" id="publication">
       <div>
-        <Link
-          href={`/article/${article.id}`}
-          className="font-bold text-blue-500 hover:underline"
-        >
+        <Link href={`/article/${article.id}`} className="link font-bold">
           {article.title}
         </Link>
         <div className="my-2">

@@ -1,6 +1,6 @@
 import { getAllScaleData } from '@/api/scale';
-import Scale_snippet_shadcn from '../components/scale_snippet_shadcn';
-import Section_heading from '../components/section_heading';
+import Scale_snippet_shadcn from '../../components/scale_snippet_shadcn';
+import Section_heading from '../../components/section_heading';
 
 export default async function Scales() {
   const scales = await getAllScaleData();

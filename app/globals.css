@@ -91,6 +91,9 @@ body {
   .link-hover {
     @apply hover:text-black;
   }
+  .link {
+    @apply text-blue-500 hover:underline;
+  }
 }
 
 @layer utilities {

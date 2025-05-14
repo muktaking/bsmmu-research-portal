@@ -33,7 +33,7 @@ export default function Profile_snippet_shadcn({
       <CardFooter>
         <Link
           href={`/researcher/${researcher.id}`}
-          className="ml-auto text-sm text-blue-600"
+          className="link ml-auto text-sm"
         >
           View Profiles
         </Link>

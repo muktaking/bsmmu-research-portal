@@ -19,7 +19,7 @@ export default function Top_nav() {
     setToggleMenu(!toggleMenu);
   }
   return (
-    <nav className="flex items-center justify-between gap-x-4 p-2">
+    <nav className="flex items-center justify-between gap-x-4 p-2 shadow-md">
       <div>
         <img className="w-16" src="https://placehold.co/16x16" />
       </div>

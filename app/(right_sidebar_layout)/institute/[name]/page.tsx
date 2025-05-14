@@ -14,7 +14,7 @@ export default async function Institute({
 
   const researchers = await getResearcherDataByInstituteID(instituteCode(name));
   return (
-    <div className="content-grid mx-auto my-7">
+    <div className="content-grid mx-auto mb-7">
       <Section_heading heading={'Researchers of ' + name.toUpperCase()} />
       <div className="flex flex-wrap justify-around gap-3">
         {researchers.length > 0 ? (

@@ -1,4 +1,5 @@
 import { getScaleData } from '@/api/scale';
+import Section_heading from '@/app/components/section_heading';
 
 type Params = Promise<{ id: number }>;
 
@@ -6,8 +7,8 @@ export default async function Scale({ params }: { params: Params }) {
   const { id } = await params;
   const scale: ScaleType = await getScaleData(id);
   return (
-    <div className="m-7">
-      <h3>Scale ID: {id}</h3>
+    <div className="mx-7 mb-7">
+      <Section_heading heading="Scale Summary" />
       <div className="content-grid mx-auto">
         <p className="text-xl font-bold">{scale.fullname}</p>
         <p className="yas-text-muted my-3">
@@ -23,7 +24,9 @@ export default async function Scale({ params }: { params: Params }) {
         </div>
         <div className="my-3">Tags: {scale.tags.join(',')}</div>
         <div>
-          <a href={scale.publication_link}>Publication</a>
+          <a href={scale.publication_link} className="link">
+            Publication
+          </a>
         </div>
         <div className="my-5">
           <p className="font-bold">Rule of Usage</p>

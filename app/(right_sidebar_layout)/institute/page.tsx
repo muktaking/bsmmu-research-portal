@@ -1,7 +1,7 @@
 import { getAllResearcherData } from '@/api/researcher';
-import Section_heading from '../components/section_heading';
+import Section_heading from '../../components/section_heading';
 import { ResearcherType } from '@/types/researcher';
-import Profile_snippet_shadcn from '../components/profile_snippet_shadcn';
+import Profile_snippet_shadcn from '../../components/profile_snippet_shadcn';
 
 export default async function Institutes() {
   const researchers = await getAllResearcherData();

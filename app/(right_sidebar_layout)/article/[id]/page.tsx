@@ -1,4 +1,5 @@
 import { getArticleDataById } from '@/api/article';
+import Section_heading from '@/app/components/section_heading';
 import { Badge } from '@/components/ui/badge';
 import { ArticleType } from '@/types/article';
 import React from 'react';
@@ -11,7 +12,8 @@ export default async function Article({
   const { id } = await params;
   const article: ArticleType = await getArticleDataById(id);
   return (
-    <div className="content-grid mx-auto my-7">
+    <div className="content-grid mx-auto mb-7">
+      <Section_heading heading="Article Summary" />
       <p className="text-xl font-semibold">{article.title}</p>
       <div className="ml-5 mt-3">
         <Badge className="mr-3 bg-slate-700 py-1">{'Article'}</Badge>

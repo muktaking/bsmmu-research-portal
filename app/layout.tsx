@@ -3,6 +3,9 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Top_nav from './components/top_nav';
 import Footer_v2 from './components/footer_v2';
+import QuickLinks from './components/quick_links';
+import Hero from './components/hero';
+import Topicwise_nav from './components/topicwise_nav';
 
 const inter = Inter({
   variable: '--font-inter',
