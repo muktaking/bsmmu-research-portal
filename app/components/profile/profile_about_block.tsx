@@ -1,4 +1,4 @@
-import { ResearcherType } from '@/types/researcher';
+import { getInstituteKey, ResearcherType } from '@/types/researcher';
 
 export default function Profile_about_block({
   researcher,
@@ -15,13 +15,15 @@ export default function Profile_about_block({
         <p className="font-medium">
           {'Designation: ' + researcher.designation}
         </p>
-        <p className="font-medium">{'Institute: ' + researcher.institute}</p>
+        <p className="font-medium">
+          {'Institute: ' + getInstituteKey(researcher.institute).toUpperCase()}
+        </p>
         <p className="font-medium">{'Email : ' + researcher.email}</p>
       </div>
-      <div className="flex grow flex-wrap items-center justify-around gap-x-3">
+      {/* <div className="flex grow flex-wrap items-center justify-around gap-x-3">
         <SubHeading header="Publications" num={researcher.publication_num} />
         <SubHeading header="Citations" num={researcher.citation_num} />
-      </div>
+      </div> */}
     </div>
   );
 }

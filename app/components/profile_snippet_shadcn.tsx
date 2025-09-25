@@ -1,5 +1,5 @@
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { ResearcherType } from '@/types/researcher';
+import { getInstituteKey, ResearcherType } from '@/types/researcher';
 import Link from 'next/link';
 
 export default function Profile_snippet_shadcn({
@@ -13,7 +13,7 @@ export default function Profile_snippet_shadcn({
         <img
           className="mx-auto h-16 w-16 rounded-full ring-2 ring-white"
           src={
-            researcher.avatar
+            researcher.avatar !== 'neutral'
               ? `/assets/images/researchers/${researcher.avatar}`
               : `/assets/images/researchers/man.png`
           }
@@ -22,12 +22,17 @@ export default function Profile_snippet_shadcn({
           <p className="font-bold">
             {researcher.firstname + ' ' + researcher.lastname}
           </p>
-          <p className="text-sm font-medium text-slate-600">
-            {researcher.designation}
-          </p>
-          <p className="text-sm font-medium text-slate-600">
-            {researcher.institute}
-          </p>
+          {researcher.designation && (
+            <p className="text-sm font-medium text-slate-600">
+              {researcher.designation}
+            </p>
+          )}
+          {researcher.institute && (
+            <p className="text-sm font-medium">
+              Working Place at{' '}
+              {getInstituteKey(researcher.institute).toUpperCase()}
+            </p>
+          )}
         </div>
       </CardContent>
       <CardFooter>

@@ -1,5 +1,7 @@
 import { getScaleData } from '@/api/scale';
 import Section_heading from '@/app/components/section_heading';
+import { ScaleType } from '@/types/scale';
+import { Badge } from '@/components/ui/badge';
 
 type Params = Promise<{ id: number }>;
 
@@ -10,12 +12,19 @@ export default async function Scale({ params }: { params: Params }) {
     <div className="mx-7 mb-7">
       <Section_heading heading="Scale Summary" />
       <div className="content-grid mx-auto">
-        <p className="text-xl font-bold">{scale.fullname}</p>
+        <p className="text-xl font-bold">{scale.title}</p>
         <p className="yas-text-muted my-3">
           Bangla Validation Date: {scale.validation_year}
         </p>
         <div className="mb-3">
-          <p className="mb-3 font-bold">Bangla Validators: {scale.validator}</p>
+          <p className="mb-3 font-bold">
+            Bangla Validators:{' '}
+            {scale.validator_name.map((validator) => (
+              <Badge key={validator} className="ml-2">
+                {validator}
+              </Badge>
+            ))}
+          </p>
           {/* <div className="flex flex-wrap gap-2">
             {[1, 2].map((e, i) => (
               <Profile_snippet_shadcn key={i} />

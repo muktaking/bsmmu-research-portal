@@ -19,7 +19,7 @@ export default function Article_snippet_shadcn({
         </div>
 
         <p className="text-sm">
-          <span className="">{article.author.join(',')}</span>
+          <span className="">{article.author_name.join(',')}</span>
         </p>
       </div>
     </div>

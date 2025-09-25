@@ -22,14 +22,14 @@ export default async function Article({
       <div className="mt-5">
         <p className="text-lg font-semibold">Authors</p>
         <div className="mb-3 ml-5">
-          {article.author?.map((authorName: string) => (
+          {article.author_name?.map((authorName: string) => (
             <Badge key={authorName} className="mr-2">
               {authorName}
             </Badge>
           ))}
         </div>
         <p className="bg-zinc-300 py-5 pl-3 pr-7 text-black">
-          {article.summary}
+          {article.description}
         </p>
         <div className="my-5 flex flex-wrap items-end gap-3">
           <div>
@@ -41,12 +41,16 @@ export default async function Article({
             ))}
           </div>
           <p>
-            <a
-              href={article.publication_link}
-              className="text-blue-700 underline"
-            >
-              Go to full publication
-            </a>
+            {article.publication_link && (
+              <a
+                href={
+                  process.env.NEXT_PUBLIC_API_URL + article.publication_link
+                }
+                className="text-blue-700 underline"
+              >
+                Go to full publication
+              </a>
+            )}
           </p>
         </div>
       </div>

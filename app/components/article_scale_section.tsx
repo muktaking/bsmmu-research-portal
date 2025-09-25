@@ -4,6 +4,7 @@ import Scale_snippet_shadcn from './scale_snippet_shadcn';
 import { getAllScaleData } from '@/api/scale';
 import { getAllArticleData } from '@/api/article';
 import { ArticleType } from '@/types/article';
+import { ScaleType } from '@/types/scale';
 
 export default async function Article_scale_section() {
   const scales = await getAllScaleData();

@@ -4,24 +4,22 @@ export interface ResearcherType {
   firstname: string;
   lastname: string;
   designation: string;
-  institute: string;
+  institute: number;
   institute_id?: number;
   degree: string;
   email: string;
   phone?: string;
-  Publication?: [string]; // Arrays of id
-  social_media?: SocialMediaType;
+  publication?: [string]; // Arrays of id
+  socialProfiles?: SocialMediaType[];
   awards?: [string]; // Arrays of string
   int_affiliation?: [string]; // Arrays of string
   editor_in_Journal?: [string]; // Arrays of string
-  citation_num?: number;
-  publication_num?: number;
 }
 
 interface SocialMediaType {
-  fb_link: string;
-  tw_link: string;
-  li_link: string;
+  id: number;
+  platform: string;
+  url: string;
 }
 
 export enum Institute {
@@ -51,3 +49,9 @@ export function instituteCode(name: string): number {
       return 0;
   }
 }
+
+export function getInstituteKey(value: number): keyof typeof Institute {
+  return Institute[value] as keyof typeof Institute;
+}
+
+console.log(getInstituteKey(3));

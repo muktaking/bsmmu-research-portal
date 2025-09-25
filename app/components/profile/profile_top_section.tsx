@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ResearcherType } from '@/types/researcher';
+import { getInstituteKey, Institute, ResearcherType } from '@/types/researcher';
 import React from 'react';
 
 export default function Profile_top_section({
@@ -14,7 +14,7 @@ export default function Profile_top_section({
           <img
             className="h-24 w-24 rounded-full ring-4 ring-white"
             src={
-              researcher.avatar
+              researcher.avatar !== 'neutral'
                 ? `/assets/images/researchers/${researcher.avatar}`
                 : `/assets/images/researchers/man.png`
             }
@@ -24,9 +24,17 @@ export default function Profile_top_section({
               {researcher.firstname + ' ' + researcher.lastname}
             </p>
             <p className="text-slate-600">
-              <span>{researcher.degree.trim() + ', '}</span>
-              <span>{researcher.designation.trim() + ', '}</span>
-              <span>{researcher.institute.trim()}</span>
+              {researcher.degree && (
+                <span>{researcher.degree.trim() + ', '}</span>
+              )}
+              {researcher.designation && (
+                <span>{researcher.designation.trim() + ', '}</span>
+              )}
+              {researcher.institute && (
+                <span>
+                  {getInstituteKey(researcher.institute).toUpperCase()}
+                </span>
+              )}
             </p>
           </div>
         </div>
