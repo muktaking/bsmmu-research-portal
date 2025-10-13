@@ -8,7 +8,7 @@ import Topicwise_nav from './components/topicwise_nav';
 import QuickLinks from './components/quick_links';
 
 export default async function Root() {
-  const researchers = await getAllResearcherData();
+  const researchers = await getAllResearcherData(5);
   return (
     <>
       <div className="bg-custom-primary text-white">

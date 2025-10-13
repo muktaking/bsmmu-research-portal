@@ -31,7 +31,7 @@ export default async function Scale({ params }: { params: Params }) {
             ))}
           </div> */}
         </div>
-        <div className="my-3">Tags: {scale.tags.join(',')}</div>
+        <div className="my-3">Tags: {scale.tags?.join(',')}</div>
         <div>
           <a href={scale.publication_link} className="link">
             Publication

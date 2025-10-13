@@ -7,8 +7,8 @@ import { ArticleType } from '@/types/article';
 import { ScaleType } from '@/types/scale';
 
 export default async function Article_scale_section() {
-  const scales = await getAllScaleData();
-  const articles = await getAllArticleData();
+  const scales = await getAllScaleData(5);
+  const articles = await getAllArticleData(5);
   return (
     <div className="content-grid grid-cols-2 md:grid">
       <div className="col-span-1 mb-5 mr-3">
