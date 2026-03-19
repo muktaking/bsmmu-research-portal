@@ -12,7 +12,11 @@ import {
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-export default function Top_nav() {
+export default function Top_nav({
+  authToggle,
+}: {
+  authToggle: React.ReactNode;
+}) {
   const pathName = usePathname();
   const [toggleMenu, setToggleMenu] = useState(true);
   function onToggleMenu() {
@@ -111,7 +115,7 @@ export default function Top_nav() {
         </ul>
       </div>
       <div className="flex items-center gap-6">
-        <Button>Sign In</Button>
+        {authToggle}
         {toggleMenu ? (
           <FaBars
             onClick={onToggleMenu}

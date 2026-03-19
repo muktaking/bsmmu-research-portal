@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Top_nav from './components/top_nav';
+import AuthToggle from '@/app/components/authToggle';
 import Footer_v2 from './components/footer_v2';
 import QuickLinks from './components/quick_links';
 import Hero from './components/hero';
@@ -25,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
-        <Top_nav />
+        <Top_nav authToggle={<AuthToggle />} />
         {children}
         <Footer_v2 />
       </body>
