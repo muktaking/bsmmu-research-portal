@@ -1,7 +1,7 @@
+import { getUserProfile } from '@/api/profile';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
 import LogoutButton from './logoutButton';
-import { getUserProfile } from '@/api/profile';
 
 export default async function AuthToggle() {
   // 1. Check if the token exists in the browser's request

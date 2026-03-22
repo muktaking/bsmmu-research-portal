@@ -17,14 +17,14 @@ export default async function Scale({ params }: { params: Params }) {
           Bangla Validation Date: {scale.validation_year}
         </p>
         <div className="mb-3">
-          <p className="mb-3 font-bold">
+          <div className="mb-3 font-bold">
             Bangla Validators:{' '}
             {scale.validator_name.map((validator) => (
               <Badge key={validator} className="ml-2">
                 {validator}
               </Badge>
             ))}
-          </p>
+          </div>
           {/* <div className="flex flex-wrap gap-2">
             {[1, 2].map((e, i) => (
               <Profile_snippet_shadcn key={i} />
