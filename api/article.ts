@@ -24,3 +24,18 @@ export async function getArticleDataById(id: number) {
 
   return res.json();
 }
+
+export async function getArticleDataByResearcherId(id: number) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/articles/researcher/${id}`,
+    {
+      cache: 'no-store', // important if you want *true* server-side fetching every request
+    },
+  );
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+
+  return res.json();
+}

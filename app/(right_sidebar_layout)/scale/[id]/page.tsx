@@ -2,6 +2,7 @@ import { getScaleData } from '@/api/scale';
 import Section_heading from '@/app/components/section_heading';
 import { ScaleType } from '@/types/scale';
 import { Badge } from '@/components/ui/badge';
+import ScaleUsageNotice from '@/app/components/scaleUsageNotice';
 
 type Params = Promise<{ id: number }>;
 
@@ -39,38 +40,7 @@ export default async function Scale({ params }: { params: Params }) {
         </div>
         <div className="my-5">
           <p className="font-bold">Rule of Usage</p>
-          <div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-              hendrerit odio sit amet ante placerat ultricies. Suspendisse
-              tincidunt neque vitae lorem consequat, nec porttitor odio
-              tristique. Suspendisse in dolor eget erat faucibus finibus. Donec
-              non nisl congue, fringilla sem consequat, lacinia mauris. Nam
-              mattis felis eu nunc consequat, vitae ultricies erat suscipit. Ut
-              sodales lacus ac ipsum congue dignissim. Fusce tristique erat eu
-              auctor vulputate. Donec dignissim velit vitae dolor placerat, eu
-              efficitur mauris tempus. Phasellus nec justo a nulla placerat
-              dictum vitae a nulla. Sed mattis urna vel volutpat auctor. Proin
-              consequat diam in accumsan consectetur. Donec feugiat lorem a
-              justo sollicitudin gravida. Maecenas dapibus metus non tempus
-              venenatis
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-              hendrerit odio sit amet ante placerat ultricies. Suspendisse
-              tincidunt neque vitae lorem consequat, nec porttitor odio
-              tristique. Suspendisse in dolor eget erat faucibus finibus. Donec
-              non nisl congue, fringilla sem consequat, lacinia mauris. Nam
-              mattis felis eu nunc consequat, vitae ultricies erat suscipit. Ut
-              sodales lacus ac ipsum congue dignissim. Fusce tristique erat eu
-              auctor vulputate. Donec dignissim velit vitae dolor placerat, eu
-              efficitur mauris tempus. Phasellus nec justo a nulla placerat
-              dictum vitae a nulla. Sed mattis urna vel volutpat auctor. Proin
-              consequat diam in accumsan consectetur. Donec feugiat lorem a
-              justo sollicitudin gravida. Maecenas dapibus metus non tempus
-              venenatis
-            </p>
-          </div>
+          <ScaleUsageNotice />
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Scale_snippet_shadcn({ scale }: { scale: ScaleType }) {
   return (
-    <div className="mb-3 border-b-2 border-stone-300 pb-3">
+    <div className="mb-3 border-b-2 border-stone-300 bg-gray-50 p-3">
       <div>
         <Link
           href={`/scale/${scale.id}`}
