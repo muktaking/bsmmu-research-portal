@@ -3,6 +3,8 @@ import Section_heading from '@/app/components/section_heading';
 import { ScaleType } from '@/types/scale';
 import { Badge } from '@/components/ui/badge';
 import ScaleUsageNotice from '@/app/components/scaleUsageNotice';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 type Params = Promise<{ id: number }>;
 
@@ -63,9 +65,11 @@ export default async function Scale({ params }: { params: Params }) {
             </div>
           </div>
         ) : (
-          <div>
-            <p className="mb-2 font-bold">Edit the document</p>
-          </div>
+          <Button className="my-5">
+            <Link href={`/manupulation/scale/update-scale/` + id} className="">
+              Upload PDF
+            </Link>
+          </Button>
         )}
 
         <div className="my-5">
