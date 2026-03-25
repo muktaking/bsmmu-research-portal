@@ -13,15 +13,13 @@ export default function CreateScalePage() {
     short_title: '',
     description: '',
     publisher: '',
-    publication_link: '',
-    server_link: '',
+    publication_link: '', // Keep publication_link as it's distinct from the uploaded PDF
     published_year: '', // We will treat this as a date input
     validation_year: '', // We will treat this as a date input
     tags: '', // Comma separated string
-    author_ids: '', // Comma separated string of numbers
-    author_names: '', // Comma separated string
     validator_ids: '', // Comma separated string of numbers
-    validator_names: '', // Comma separated string
+    validator_names: '',
+    pdfFile: null as File | null, // New field for the PDF file
   });
 
   const handleChange = (
@@ -29,6 +27,12 @@ export default function CreateScalePage() {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, files } = e.target;
+    // Set the selected file (first file if multiple are selected)
+    setFormData((prev) => ({ ...prev, [name]: files ? files[0] : null }));
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -39,14 +43,6 @@ export default function CreateScalePage() {
     // Prepare data for the API
     const payload = {
       ...formData,
-      author_id: formData.author_ids
-        .split(',')
-        .map((id) => parseInt(id.trim()))
-        .filter((id) => !isNaN(id)),
-      author_name: formData.author_names
-        .split(',')
-        .map((name) => name.trim())
-        .filter((name) => name !== ''),
       validator_id: formData.validator_ids
         .split(',')
         .map((id) => parseInt(id.trim()))
@@ -67,25 +63,66 @@ export default function CreateScalePage() {
         : null,
     };
 
-    // Remove temporary string fields used for input
+    // Define the structure for the final payload to be sent via FormData
+    interface FinalPayload {
+      title: string;
+      short_title: string;
+      description: string;
+      publisher: string;
+      publication_link: string;
+      published_year: string | null;
+      validation_year: string | null;
+      tags: string[];
+      validator_id: number[];
+      validator_name: string[];
+    }
+
+    const finalPayload: FinalPayload = {
+      title: payload.title,
+      short_title: payload.short_title,
+      description: payload.description,
+      publisher: payload.publisher,
+      publication_link: payload.publication_link,
+      published_year: payload.published_year,
+      validation_year: payload.validation_year,
+      tags: payload.tags,
+      validator_id: payload.validator_id,
+      validator_name: payload.validator_name,
+    };
+
     const {
-      author_ids,
-      author_names,
-      validator_ids,
-      validator_names,
-      ...finalPayload
-    } = payload as any;
+      pdfFile, // Extract pdfFile from formData
+    } = formData;
+
+    const formDataToSend = new FormData();
+
+    // Append all fields from finalPayload to FormData
+    for (const key in finalPayload) {
+      const value = finalPayload[key as keyof FinalPayload];
+      if (Array.isArray(value)) {
+        // For array fields, append each item separately
+        value.forEach((item) => formDataToSend.append(key, item.toString()));
+      } else if (value !== null) {
+        // Append non-null, non-array values
+        formDataToSend.append(key, value.toString());
+      }
+    }
+
+    // Append the PDF file if it exists
+    if (pdfFile) {
+      formDataToSend.append('pdf_file', pdfFile); // 'pdf_file' is the expected field name on the server
+    }
 
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/scales`,
         {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          // IMPORTANT: Do NOT set 'Content-Type' header when sending FormData.
+          // The browser will automatically set the correct 'Content-Type'
+          // with the appropriate boundary for multipart/form-data.
           credentials: 'include',
-          body: JSON.stringify(finalPayload),
+          body: formDataToSend, // Send FormData object
         },
       );
 
@@ -113,14 +150,12 @@ export default function CreateScalePage() {
         description: '',
         publisher: '',
         publication_link: '',
-        server_link: '',
         published_year: '',
         validation_year: '',
         tags: '',
-        author_ids: '',
-        author_names: '',
         validator_ids: '',
         validator_names: '',
+        pdfFile: null, // Reset the file input
       });
     } catch (err: any) {
       setError(err.message || 'An unexpected error occurred');
@@ -216,18 +251,6 @@ export default function CreateScalePage() {
                 className="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Server Link (PDF)
-              </label>
-              <input
-                type="url"
-                name="server_link"
-                value={formData.server_link}
-                onChange={handleChange}
-                className="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-              />
-            </div>
           </div>
 
           {/* Dates */}
@@ -255,43 +278,6 @@ export default function CreateScalePage() {
                 onChange={handleChange}
                 className="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               />
-            </div>
-          </div>
-
-          {/* Authors */}
-          <div className="rounded-md bg-gray-50 p-4">
-            <h3 className="text-md mb-2 font-semibold text-gray-700">
-              Authors
-            </h3>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Author IDs (comma separated) *
-                </label>
-                <input
-                  type="text"
-                  name="author_ids"
-                  required
-                  placeholder="1, 2, 3"
-                  value={formData.author_ids}
-                  onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Author Names (comma separated) *
-                </label>
-                <input
-                  type="text"
-                  name="author_names"
-                  required
-                  placeholder="John Doe, Jane Smith"
-                  value={formData.author_names}
-                  onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                />
-              </div>
             </div>
           </div>
 
@@ -343,6 +329,20 @@ export default function CreateScalePage() {
               placeholder="Psychology, Measurement"
               value={formData.tags}
               onChange={handleChange}
+              className="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+            />
+          </div>
+
+          {/* PDF File Upload */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Upload PDF
+            </label>
+            <input
+              type="file"
+              name="pdfFile"
+              accept="application/pdf"
+              onChange={handleFileChange}
               className="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
             />
           </div>
