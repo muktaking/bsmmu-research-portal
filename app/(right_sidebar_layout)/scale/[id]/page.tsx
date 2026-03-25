@@ -40,7 +40,7 @@ export default async function Scale({ params }: { params: Params }) {
           </a>
         </div>
 
-        {scale.server_link && scale.server_link !== '' && (
+        {scale.server_link && scale.server_link !== '' ? (
           <div className="my-8">
             <p className="mb-2 font-bold">Document Preview</p>
             <div className="overflow-hidden rounded-md border border-gray-300 bg-white shadow-sm">
@@ -61,6 +61,10 @@ export default async function Scale({ params }: { params: Params }) {
                 Download Scale PDF
               </a>
             </div>
+          </div>
+        ) : (
+          <div>
+            <p className="mb-2 font-bold">Edit the document</p>
           </div>
         )}
 
