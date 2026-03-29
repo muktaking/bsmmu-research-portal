@@ -25,7 +25,7 @@ export default function Top_nav({
   return (
     <nav className="flex items-center justify-between gap-x-4 p-2 shadow-md">
       <div>
-        <img className="w-16" src="https://placehold.co/16x16" />
+        <img className="w-16" src="/assets/images/question.png" />
       </div>
       <div
         className={`absolute left-0 ${toggleMenu ? 'top-[-100%]' : 'top-[-9%]'} flex min-h-[60vh] w-full items-center bg-white px-5 text-xl md:static md:min-h-fit md:w-auto md:bg-gray-50`}
@@ -58,30 +58,31 @@ export default function Top_nav({
                 <FaChevronRight size=".8rem" />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem>
-                  <Link href="/institute/bmu">BMU</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/institute/nimh">NIMH</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/institute/somch">SOMCH</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/institute/afmc">AFMC</Link>
-                </DropdownMenuItem>
+                <Link href="/institute/bmu">
+                  <DropdownMenuItem>BMU</DropdownMenuItem>
+                </Link>
+                <Link href="/institute/nimh">
+                  <DropdownMenuItem>NIMH</DropdownMenuItem>
+                </Link>
+
+                <Link href="/institute/somch">
+                  <DropdownMenuItem>SOMCH</DropdownMenuItem>
+                </Link>
+                <Link href="/institute/afmc">
+                  <DropdownMenuItem>AFMC</DropdownMenuItem>
+                </Link>
                 <DropdownMenuItem>
                   <DropdownMenu>
                     <DropdownMenuTrigger className="felx-nowrap flex items-center">
                       <span>Others</span> <FaChevronRight size=".8rem" />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
-                      <DropdownMenuItem>
-                        <Link href="/institute/foreign">Foreign</Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem>
-                        <Link href="/institute/local">Local</Link>
-                      </DropdownMenuItem>
+                      <Link href="/institute/foreign">
+                        <DropdownMenuItem>Foreign</DropdownMenuItem>
+                      </Link>
+                      <Link href="/institute/local">
+                        <DropdownMenuItem>Local</DropdownMenuItem>
+                      </Link>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </DropdownMenuItem>
