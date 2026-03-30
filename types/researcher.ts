@@ -9,11 +9,11 @@ export interface ResearcherType {
   degree: string;
   email: string;
   phone?: string;
-  publication?: [string]; // Arrays of id
+  publication?: string; // Arrays of id
   socialProfiles?: SocialMediaType[];
-  awards?: [string]; // Arrays of string
-  int_affiliation?: [string]; // Arrays of string
-  editor_in_Journal?: [string]; // Arrays of string
+  awards?: string; // Arrays of string
+  int_affiliation?: string; // Arrays of string
+  editor_in_Journal?: string; // Arrays of string
 }
 
 interface SocialMediaType {

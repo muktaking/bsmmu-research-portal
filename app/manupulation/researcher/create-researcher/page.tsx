@@ -4,9 +4,12 @@ import { useState, FormEvent, ChangeEvent } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function CreateResearcherPage() {
-  const router = useRouter();
+  const router = useRouter(); // Note: You aren't using this yet, but you might want it to redirect after success!
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
     firstname: '',
@@ -33,26 +36,40 @@ export default function CreateResearcherPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+      setSelectedFile(file);
+      setPreviewUrl(URL.createObjectURL(file));
+    }
+  };
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
 
-    const payload = {
-      ...formData,
-      institute: parseInt(formData.institute),
-    };
+    const data = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      if (key !== 'avatar') {
+        data.append(key, value);
+      }
+    });
+
+    if (selectedFile) {
+      data.append('avatar', selectedFile);
+    } else {
+      data.append('avatar', formData.avatar); // Sends 'neutral'
+    }
 
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/researchers`,
         {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
           credentials: 'include',
-          body: JSON.stringify(payload),
+          body: data,
         },
       );
 
@@ -88,6 +105,8 @@ export default function CreateResearcherPage() {
         int_affiliation: '',
         editor_in_Journal: '',
       });
+      setSelectedFile(null);
+      setPreviewUrl(null);
     } catch (err: any) {
       setError(err.message || 'An unexpected error occurred');
     } finally {
@@ -106,9 +125,8 @@ export default function CreateResearcherPage() {
           {error}
         </div>
       )}
-
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Personal Info */}
+        {/* --- PERSONAL INFORMATION --- */}
         <div className="rounded-md bg-gray-50 p-4">
           <h2 className="mb-4 text-lg font-semibold text-gray-700">
             Personal Information
@@ -194,21 +212,33 @@ export default function CreateResearcherPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Avatar (URL/Filename) *
+                Avatar
               </label>
-              <input
-                type="text"
-                name="avatar"
-                required
-                value={formData.avatar}
-                onChange={handleChange}
-                className="mt-1 block w-full rounded-md border border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-              />
+              <div className="mt-1 flex items-center gap-4">
+                {previewUrl ? (
+                  <img
+                    src={previewUrl}
+                    alt="Preview"
+                    className="h-12 w-12 rounded-full border border-gray-300 object-cover"
+                  />
+                ) : (
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-dashed border-gray-300 bg-gray-50 text-xs text-gray-400">
+                    No Img
+                  </div>
+                )}
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:rounded-full file:border-0 file:bg-indigo-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-indigo-700 hover:file:bg-indigo-100"
+                />
+              </div>
             </div>
           </div>
         </div>
+        {/* --- END PERSONAL INFORMATION --- */}
 
-        {/* Professional Info */}
+        {/* --- PROFESSIONAL INFORMATION --- */}
         <div className="rounded-md bg-gray-50 p-4">
           <h2 className="mb-4 text-lg font-semibold text-gray-700">
             Professional Information
@@ -270,8 +300,9 @@ export default function CreateResearcherPage() {
             </div>
           </div>
         </div>
+        {/* --- END PROFESSIONAL INFORMATION --- */}
 
-        {/* Researcher Details */}
+        {/* --- RESEARCHER DETAILS --- */}
         <div className="rounded-md bg-gray-50 p-4">
           <h2 className="mb-4 text-lg font-semibold text-gray-700">
             Researcher Details
@@ -327,6 +358,7 @@ export default function CreateResearcherPage() {
             </div>
           </div>
         </div>
+        {/* --- END RESEARCHER DETAILS --- */}
 
         <button
           type="submit"

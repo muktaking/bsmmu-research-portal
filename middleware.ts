@@ -14,7 +14,9 @@ export enum RolePermitted {
 const roleRequirements: Record<string, RolePermitted> = {
   '/dashboard': RolePermitted.member,
   '/profile': RolePermitted.member,
-  '/manupulation': RolePermitted.researcher,
+  '/manupulation/researcher': RolePermitted.researcher,
+  '/manupulation/article': RolePermitted.moderator,
+  '/manupulation/scale': RolePermitted.moderator,
 };
 
 export function middleware(request: NextRequest) {
@@ -65,7 +67,6 @@ export const config = {
   matcher: [
     '/dashboard/:path*', // Protects /dashboard and any sub-routes
     '/profile/:path*',
-    '/scale/:path*',
     '/manupulation/:path*',
     // Add other protected routes here
   ],

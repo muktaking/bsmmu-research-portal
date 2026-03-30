@@ -45,7 +45,7 @@ export default function Footer_v2() {
                         fontWeight="bold"
                       >
                         <tspan x="654" y="518">
-                          BPP
+                          PRABD
                         </tspan>
                       </text>
                     </g>
@@ -53,17 +53,16 @@ export default function Footer_v2() {
                 </svg>
               </Link>
               <p className="text-justify">
-                Tailwindow is a collection of UI Components created using
-                Tailwind CSS Framework. The UI Components gives you all of the
-                building blocks you need to build any designs without any
-                annoying opinionated styles you have to fight to override.
+                Psychiatry Research Association of Bangladesh (PRABD), the
+                premier digital hub dedicated to advancing the landscape of
+                psychiatric and psychological research within the country.
               </p>
             </div>
 
             <div className="my-4 w-full px-4 sm:w-auto">
               <div>
                 <h2 className="mb-4 inline-block border-b-4 border-blue-600 pb-4 text-2xl">
-                  Company
+                  Association
                 </h2>
               </div>
               <ul className="leading-8">
@@ -98,27 +97,7 @@ export default function Footer_v2() {
               <ul className="leading-8">
                 <li>
                   <a href="#" className="hover:text-blue-400">
-                    Getting Started With HTML and CSS
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-blue-400">
-                    What Is Flex And When to Use It?
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-blue-400">
-                    How TailwindCSS Can Help Your Productivity?
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-blue-400">
-                    5 Tips to Make Responsive Website
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-blue-400">
-                    See More
+                    Coming soon...
                   </a>
                 </li>
               </ul>
@@ -197,7 +176,7 @@ export default function Footer_v2() {
         <div className="container mx-auto px-4">
           <div className="-mx-4 flex flex-wrap justify-between">
             <div className="w-full px-4 text-center sm:w-auto sm:text-left">
-              Copyright © 2020. All Rights Reserved.
+              Copyright © 2026. All Rights Reserved.
             </div>
             <div className="w-full px-4 text-center sm:w-auto sm:text-left">
               Made with

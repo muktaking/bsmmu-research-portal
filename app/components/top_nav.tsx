@@ -113,6 +113,33 @@ export default function Top_nav({
               Blogs
             </Link>
           </li>
+          <li>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex flex-nowrap items-center text-gray-400 hover:text-black focus:outline-none">
+                <span
+                  className={`${pathName.includes('/manupulation') ? 'link-active' : 'link-inactive'} link-hover`}
+                >
+                  Data Entry
+                </span>
+                <FaChevronRight size=".8rem" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <Link href="/manupulation/article/create-article">
+                  <DropdownMenuItem>Create Article</DropdownMenuItem>
+                </Link>
+                <Link href="/manupulation/article/update-article">
+                  <DropdownMenuItem>Update Article</DropdownMenuItem>
+                </Link>
+
+                <Link href="/manupulation/scale/create-scale">
+                  <DropdownMenuItem>Create Scale</DropdownMenuItem>
+                </Link>
+                <Link href="/manupulation/scale/update-scale">
+                  <DropdownMenuItem>Update Scale</DropdownMenuItem>
+                </Link>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </li>
         </ul>
       </div>
       <div className="flex items-center gap-6">

@@ -14,7 +14,7 @@ export default function Profile_snippet_shadcn({
           className="mx-auto h-16 w-16 rounded-full ring-2 ring-white"
           src={
             researcher.avatar !== 'neutral'
-              ? `/assets/images/researchers/${researcher.avatar}`
+              ? `${process.env.NEXT_PUBLIC_API_URL}/${researcher.avatar}`
               : `/assets/images/researchers/man.png`
           }
         ></img>
