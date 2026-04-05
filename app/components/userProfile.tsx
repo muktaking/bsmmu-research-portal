@@ -1,3 +1,4 @@
+import { Institute } from '@/types/researcher';
 import React from 'react';
 
 // 1. Define the TypeScript interface matching your clean data
@@ -111,9 +112,11 @@ export default function UserProfile({ user }: { user: UserData }) {
               </li>
               <li className="flex flex-col gap-1">
                 <span className="text-xs text-gray-500 dark:text-gray-400">
-                  Institute ID
+                  Institute
                 </span>
-                <span className="font-medium">{user.institute}</span>
+                <span className="font-medium">
+                  {Institute[user.institute].toUpperCase()}
+                </span>
               </li>
               <li className="flex flex-col gap-1">
                 <span className="text-xs text-gray-500 dark:text-gray-400">

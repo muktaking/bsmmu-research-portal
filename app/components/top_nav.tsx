@@ -28,7 +28,7 @@ export default function Top_nav({
         <img className="w-16" src="/assets/images/question.png" />
       </div>
       <div
-        className={`absolute left-0 ${toggleMenu ? 'top-[-100%]' : 'top-[-9%]'} flex min-h-[60vh] w-full items-center bg-white px-5 text-xl md:static md:min-h-fit md:w-auto md:bg-gray-50`}
+        className={`absolute left-0 ${toggleMenu ? 'top-[-100%]' : 'top-[1%]'} flex min-h-[60vh] w-full items-center bg-white px-5 text-xl md:static md:min-h-fit md:w-auto md:bg-gray-50 md:py-3`}
       >
         <ul className="flex flex-col gap-8 text-gray-400 md:flex-row md:items-center md:gap-[4vh]">
           <li className="">
@@ -39,12 +39,36 @@ export default function Top_nav({
               Home
             </Link>
           </li>
+          <li className="">
+            <Link
+              href="/dashboard"
+              className={`${pathName == '/dashboard' ? 'link-active' : 'link-inactive'} link-hover`}
+            >
+              Dashboard
+            </Link>
+          </li>
           <li className="hover:text-black">
             <Link
               href="/researcher"
               className={`${pathName.includes('/researcher') ? 'link-active' : 'link-inactive'} link-hover`}
             >
               Researcher
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/scale"
+              className={`${pathName.includes('/scale') ? 'link-active' : 'link-inactive'} link-hover`}
+            >
+              Scale
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/article"
+              className={`${pathName == '/article' ? 'link-active' : 'link-inactive'} link-hover`}
+            >
+              Article
             </Link>
           </li>
           <li>
@@ -89,22 +113,7 @@ export default function Top_nav({
               </DropdownMenuContent>
             </DropdownMenu>
           </li>
-          <li>
-            <Link
-              href="/scale"
-              className={`${pathName.includes('/scale') ? 'link-active' : 'link-inactive'} link-hover`}
-            >
-              Scale
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/article"
-              className={`${pathName == '/article' ? 'link-active' : 'link-inactive'} link-hover`}
-            >
-              Article
-            </Link>
-          </li>
+
           <li>
             <Link
               href="/blogs"
@@ -136,6 +145,12 @@ export default function Top_nav({
                 </Link>
                 <Link href="/manupulation/scale/update-scale">
                   <DropdownMenuItem>Update Scale</DropdownMenuItem>
+                </Link>
+                <Link href="/manupulation/researcher/create-researcher">
+                  <DropdownMenuItem>Create Researcher</DropdownMenuItem>
+                </Link>
+                <Link href="/manupulation/researcher/update-researcher">
+                  <DropdownMenuItem>Update Researcher</DropdownMenuItem>
                 </Link>
               </DropdownMenuContent>
             </DropdownMenu>

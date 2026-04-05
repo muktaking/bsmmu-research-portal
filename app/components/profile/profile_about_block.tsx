@@ -6,24 +6,16 @@ export default function Profile_about_block({
   researcher: ResearcherType;
 }) {
   return (
-    <div className="flex flex-wrap items-center justify-around gap-3">
-      <div>
-        <p className="text-lg font-bold">
-          {researcher.firstname + ' ' + researcher.lastname}
-        </p>
-        <p className="font-medium">{'Degree: ' + researcher.degree}</p>
-        <p className="font-medium">
-          {'Designation: ' + researcher.designation}
-        </p>
-        <p className="font-medium">
-          {'Institute: ' + getInstituteKey(researcher.institute).toUpperCase()}
-        </p>
-        <p className="font-medium">{'Email : ' + researcher.email}</p>
-      </div>
-      {/* <div className="flex grow flex-wrap items-center justify-around gap-x-3">
-        <SubHeading header="Publications" num={researcher.publication_num} />
-        <SubHeading header="Citations" num={researcher.citation_num} />
-      </div> */}
+    <div className="pl-1">
+      <p className="text-lg font-bold">
+        {researcher.firstname + ' ' + researcher.lastname}
+      </p>
+      <p className="font-medium">{'Degree: ' + researcher.degree}</p>
+      <p className="font-medium">{'Designation: ' + researcher.designation}</p>
+      <p className="font-medium">
+        {'Institute: ' + getInstituteKey(researcher.institute).toUpperCase()}
+      </p>
+      <p className="font-medium">{'Email : ' + researcher.email}</p>
     </div>
   );
 }

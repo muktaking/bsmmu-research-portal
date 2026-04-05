@@ -2,6 +2,7 @@ import { getArticleDataById } from '@/api/article';
 import Section_heading from '@/app/components/section_heading';
 import { Badge } from '@/components/ui/badge';
 import { ArticleType } from '@/types/article';
+import Link from 'next/link';
 import React from 'react';
 
 export default async function Article({
@@ -15,18 +16,35 @@ export default async function Article({
     <div className="content-grid mx-auto mb-7">
       <Section_heading heading="Article Summary" />
       <p className="text-xl font-semibold">{article.title}</p>
-      <div className="ml-5 mt-3">
-        <Badge className="mr-3 bg-slate-700 py-1">{'Article'}</Badge>
+      <div className="ml-5 mt-3 text-right">
+        <Badge variant={'secondary'} className="mr-3 py-1">
+          {'Article'}
+        </Badge>
         <span className="yas-text-muted">{article.published_year}</span>
       </div>
       <div className="mt-5">
         <p className="text-lg font-semibold">Authors</p>
         <div className="mb-3 ml-5">
-          {article.author_name?.map((authorName: string) => (
-            <Badge key={authorName} className="mr-2">
-              {authorName}
-            </Badge>
-          ))}
+          {article.author_name?.map((authorName: string, index: number) => {
+            if (article.author_id[index]) {
+              return (
+                <Link
+                  key={article.author_id[index]}
+                  href={`/researcher/${article.author_id[index]}`}
+                >
+                  <Badge key={authorName} className="mr-2">
+                    {authorName}
+                  </Badge>
+                </Link>
+              );
+            } else {
+              return (
+                <Badge key={authorName} variant="secondary" className="mr-2">
+                  {authorName}
+                </Badge>
+              );
+            }
+          })}
         </div>
         <p className="bg-zinc-300 py-5 pl-3 pr-7 text-black">
           {article.description}
