@@ -4,7 +4,6 @@ import { useState, FormEvent, ChangeEvent } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function CreateArticlePage() {
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 

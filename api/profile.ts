@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 
 export async function getUserProfile() {
   // 1. Extract the cookie securely on the server
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const token = cookieStore.get('access_token')?.value;
 
   // If there's no token in the browser's request, fail early

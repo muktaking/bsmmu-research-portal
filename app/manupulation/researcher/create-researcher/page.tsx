@@ -1,10 +1,9 @@
 'use client';
 
 import { useState, FormEvent, ChangeEvent } from 'react';
-import { useRouter } from 'next/navigation';
 
 export default function CreateResearcherPage() {
-  const router = useRouter(); // Note: You aren't using this yet, but you might want it to redirect after success!
+  // Note: You aren't using this yet, but you might want it to redirect after success!
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 

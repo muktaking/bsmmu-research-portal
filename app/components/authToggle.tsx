@@ -5,7 +5,7 @@ import LogoutButton from './logoutButton';
 
 export default async function AuthToggle() {
   // 1. Check if the token exists in the browser's request
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const hasToken = cookieStore.has('access_token');
 
   // 2. If no token, show the Login/Register buttons

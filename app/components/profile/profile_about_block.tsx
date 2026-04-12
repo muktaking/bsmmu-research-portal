@@ -20,17 +20,17 @@ export default function Profile_about_block({
   );
 }
 
-function SubHeading({
-  header,
-  num,
-}: {
-  header: string;
-  num: number | undefined;
-}) {
-  return (
-    <div className="text-center">
-      <p className="text-lg font-bold">{num ? num : '***'}</p>
-      <p>{header}</p>
-    </div>
-  );
-}
+// function SubHeading({
+//   header,
+//   num,
+// }: {
+//   header: string;
+//   num: number | undefined;
+// }) {
+//   return (
+//     <div className="text-center">
+//       <p className="text-lg font-bold">{num ? num : '***'}</p>
+//       <p>{header}</p>
+//     </div>
+//   );
+// }

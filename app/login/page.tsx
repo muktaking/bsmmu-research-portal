@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -14,7 +13,7 @@ export default function LoginPage() {
 
     try {
       const response = await fetch(
-        'http://localhost:5000/authentication/login',
+        process.env.NEXT_PUBLIC_API_URL + '/authentication/login',
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -31,7 +30,7 @@ export default function LoginPage() {
         setError(errData.message || 'Login failed');
       }
     } catch (err) {
-      setError('An error occurred while connecting to the server.');
+      setError('An error occurred while connecting to the server.' + err);
     }
   };
 

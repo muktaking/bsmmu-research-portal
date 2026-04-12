@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { getInstituteKey, Institute, ResearcherType } from '@/types/researcher';
+import { getInstituteKey, ResearcherType } from '@/types/researcher';
 import React from 'react';
 
 export default function Profile_top_section({
