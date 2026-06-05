@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 export async function getUserProfile() {
   // 1. Extract the cookie securely on the server
   const cookieStore = await cookies();
-  const token = cookieStore.get('access_token')?.value;
+  const token = cookieStore.get('better-auth.session_token')?.value;
 
   // If there's no token in the browser's request, fail early
   if (!token) {
@@ -20,7 +20,7 @@ export async function getUserProfile() {
         method: 'GET',
         headers: {
           // Forwarding the HttpOnly cookie to NestJS
-          Cookie: `access_token=${token}`,
+          Cookie: `better-auth.session_token=${token}`,
         },
         cache: 'no-store', // Ensures we don't cache stale user data
       },
