@@ -50,3 +50,25 @@ export const roles = {
 };
 
 export type Roles = keyof typeof roles;
+
+// 1. Assign numeric ranks to your roles (higher number = more access)
+export const ROLE_HIERARCHY: Record<Roles, number> = {
+  admin: 5,
+  coordinator: 4,
+  moderator: 3,
+  researcher: 2,
+  member: 1,
+  guest: 0,
+};
+
+/**
+ * Checks if a user's role meets a minimum required threshold.
+ * Returns false if the role is missing or rank is too low.
+ */
+export function hasMinimumRole(
+  userRole: string | undefined | null,
+  minRequiredRole: Roles,
+): boolean {
+  if (!userRole || !(userRole in ROLE_HIERARCHY)) return false;
+  return ROLE_HIERARCHY[userRole as Roles] >= ROLE_HIERARCHY[minRequiredRole];
+}
