@@ -7,7 +7,7 @@ export interface UserData {
   firstname: string;
   lastname: string;
   username: string;
-  avatar: string;
+  image: string;
   email: string;
   gender: string;
   phone: string;
@@ -34,7 +34,7 @@ export default function UserProfile({ user }: { user: UserData }) {
       ? `${user.firstname} ${user.lastname}`.trim()
       : user.username;
 
-  // Helper to get an initial for the avatar
+  // Helper to get an initial for the image
   const initial = displayName.charAt(0).toUpperCase();
 
   return (
@@ -45,7 +45,7 @@ export default function UserProfile({ user }: { user: UserData }) {
       {/* Main Profile Header */}
       <div className="px-6 sm:px-8">
         <div className="-mt-12 mb-6 flex flex-col gap-5 sm:-mt-16 sm:flex-row sm:items-end">
-          {/* Avatar (Handles the "neutral" string by rendering an initial) */}
+          {/* image (Handles the "neutral" string by rendering an initial) */}
           <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-full border-4 border-white bg-white text-4xl font-bold text-blue-600 shadow-md dark:border-gray-800 dark:bg-gray-100 sm:h-32 sm:w-32">
             {initial}
           </div>

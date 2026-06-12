@@ -15,7 +15,7 @@ export default function CreateResearcherPage() {
     lastname: '',
     username: '',
     email: '',
-    avatar: 'neutral',
+    image: 'neutral',
     gender: 'male',
     phone: '',
     degree: '',
@@ -51,15 +51,15 @@ export default function CreateResearcherPage() {
 
     const data = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
-      if (key !== 'avatar') {
+      if (key !== 'image') {
         data.append(key, value);
       }
     });
 
     if (selectedFile) {
-      data.append('avatar', selectedFile);
+      data.append('image', selectedFile);
     } else {
-      data.append('avatar', formData.avatar); // Sends 'neutral'
+      data.append('image', formData.image); // Sends 'neutral'
     }
 
     try {
@@ -92,7 +92,7 @@ export default function CreateResearcherPage() {
         lastname: '',
         username: '',
         email: '',
-        avatar: 'neutral',
+        image: 'neutral',
         gender: 'male',
         phone: '',
         degree: '',
@@ -211,7 +211,7 @@ export default function CreateResearcherPage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Avatar
+                image
               </label>
               <div className="mt-1 flex items-center gap-4">
                 {previewUrl ? (

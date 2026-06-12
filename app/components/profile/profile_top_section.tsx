@@ -14,8 +14,8 @@ export default function Profile_top_section({
           <img
             className="h-24 w-24 rounded-full ring-4 ring-white"
             src={
-              researcher.avatar !== 'neutral'
-                ? `${process.env.NEXT_PUBLIC_API_URL}/${researcher.avatar}`
+              researcher.image !== 'neutral'
+                ? `${process.env.NEXT_PUBLIC_API_URL}/${researcher.image}`
                 : `/assets/images/researchers/man.png`
             }
           ></img>

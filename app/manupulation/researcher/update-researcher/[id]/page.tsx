@@ -21,7 +21,7 @@ export default function UpdateResearcherPage({ params }: { params: Params }) {
     firstname: '',
     lastname: '',
     email: '',
-    avatar: 'neutral', // This will store the current avatar URL/filename
+    image: 'neutral', // This will store the current image URL/filename
     phone: '',
     degree: '',
     designation: '',
@@ -51,7 +51,7 @@ export default function UpdateResearcherPage({ params }: { params: Params }) {
           firstname: data.firstname || '',
           lastname: data.lastname || '',
           email: data.email || '',
-          avatar: data.avatar || 'neutral',
+          image: data.image || 'neutral',
           phone: data.phone || '',
           degree: data.degree || '',
           designation: data.designation || '',
@@ -61,8 +61,8 @@ export default function UpdateResearcherPage({ params }: { params: Params }) {
           int_affiliation: data.int_affiliation || '',
           editor_in_Journal: data.editor_in_Journal || '',
         });
-        if (data.avatar && data.avatar !== 'neutral') {
-          setPreviewUrl(`${process.env.NEXT_PUBLIC_API_URL}/${data.avatar}`);
+        if (data.image && data.image !== 'neutral') {
+          setPreviewUrl(`${process.env.NEXT_PUBLIC_API_URL}/${data.image}`);
         }
         setInitialDataLoaded(true);
       } catch (err: any) {
@@ -94,9 +94,9 @@ export default function UpdateResearcherPage({ params }: { params: Params }) {
       setPreviewUrl(URL.createObjectURL(file));
     } else {
       setSelectedFile(null);
-      // Revert to existing avatar if file is cleared
-      if (formData.avatar && formData.avatar !== 'neutral') {
-        setPreviewUrl(`${process.env.NEXT_PUBLIC_API_URL}/${formData.avatar}`);
+      // Revert to existing image if file is cleared
+      if (formData.image && formData.image !== 'neutral') {
+        setPreviewUrl(`${process.env.NEXT_PUBLIC_API_URL}/${formData.image}`);
       } else {
         setPreviewUrl(null);
       }
@@ -110,18 +110,18 @@ export default function UpdateResearcherPage({ params }: { params: Params }) {
 
     const data = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
-      // Only append if not the avatar field, as avatar is handled separately
-      if (key !== 'avatar') {
+      // Only append if not the image field, as image is handled separately
+      if (key !== 'image') {
         data.append(key, value);
       }
     });
 
     if (selectedFile) {
-      data.append('avatar', selectedFile);
+      data.append('image', selectedFile);
     } else {
-      // If no new file is selected, but there was an existing avatar, send its path
-      // Or send 'neutral' if no avatar was ever set
-      data.append('avatar', formData.avatar);
+      // If no new file is selected, but there was an existing image, send its path
+      // Or send 'neutral' if no image was ever set
+      data.append('image', formData.image);
     }
 
     try {
@@ -236,7 +236,7 @@ export default function UpdateResearcherPage({ params }: { params: Params }) {
 
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Avatar
+                image
               </label>
               <div className="mt-1 flex items-center gap-4">
                 {previewUrl ? (

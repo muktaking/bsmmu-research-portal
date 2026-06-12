@@ -163,6 +163,9 @@ export default function Top_nav({
                   <DropdownItem href="/manupulation/researcher/update-researcher">
                     Update Researcher
                   </DropdownItem>
+                  <DropdownItem href="/manupulation/researcher/upload-csv">
+                    Create Researcher by Uploading CSV
+                  </DropdownItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </li>

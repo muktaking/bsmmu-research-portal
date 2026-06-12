@@ -1,6 +1,6 @@
 export interface ResearcherType {
   id: number;
-  avatar: string;
+  image: string;
   firstname: string;
   lastname: string;
   designation: string;
